@@ -18,6 +18,8 @@ import org.jetbrains.annotations.NotNull;
 public class AntiWorldDownloader extends Module implements PluginMessageListener {
 
     private final boolean legacy;
+    private static final String WDL_INIT_CHANNEL = "wdl:init";
+    private static final String WDL_CONTROL_CHANNEL = "wdl:control";
 
     public AntiWorldDownloader(DeluxeHubPlugin plugin) {
         super(plugin, ModuleType.ANTI_WDL);
@@ -27,22 +29,22 @@ public class AntiWorldDownloader extends Module implements PluginMessageListener
     @Override
     public void onEnable() {
         if (legacy) {
-            getPlugin().getServer().getMessenger().registerIncomingPluginChannel(getPlugin(), "WDL|INIT", this);
-            getPlugin().getServer().getMessenger().registerOutgoingPluginChannel(getPlugin(), "WDL|CONTROL");
+            getPlugin().getServer().getMessenger().registerIncomingPluginChannel(getPlugin(), WDL_INIT_CHANNEL, this);
+            getPlugin().getServer().getMessenger().registerOutgoingPluginChannel(getPlugin(), WDL_CONTROL_CHANNEL);
         } else {
-            getPlugin().getServer().getMessenger().registerIncomingPluginChannel(getPlugin(), "wdl:init", this);
-            getPlugin().getServer().getMessenger().registerOutgoingPluginChannel(getPlugin(), "wdl:control");
+            getPlugin().getServer().getMessenger().registerIncomingPluginChannel(getPlugin(), WDL_INIT_CHANNEL, this);
+            getPlugin().getServer().getMessenger().registerOutgoingPluginChannel(getPlugin(), WDL_CONTROL_CHANNEL);
         }
     }
 
     @Override
     public void onDisable() {
         if (legacy) {
-            getPlugin().getServer().getMessenger().unregisterIncomingPluginChannel(getPlugin(), "WDL|INIT");
-            getPlugin().getServer().getMessenger().unregisterOutgoingPluginChannel(getPlugin(), "WDL|CONTROL");
+            getPlugin().getServer().getMessenger().unregisterIncomingPluginChannel(getPlugin(), WDL_INIT_CHANNEL);
+            getPlugin().getServer().getMessenger().unregisterOutgoingPluginChannel(getPlugin(), WDL_CONTROL_CHANNEL);
         } else {
-            getPlugin().getServer().getMessenger().unregisterIncomingPluginChannel(getPlugin(), "wdl:init");
-            getPlugin().getServer().getMessenger().unregisterOutgoingPluginChannel(getPlugin(), "wdl:control");
+            getPlugin().getServer().getMessenger().unregisterIncomingPluginChannel(getPlugin(), WDL_INIT_CHANNEL);
+            getPlugin().getServer().getMessenger().unregisterOutgoingPluginChannel(getPlugin(), WDL_CONTROL_CHANNEL);
         }
     }
 
@@ -51,13 +53,12 @@ public class AntiWorldDownloader extends Module implements PluginMessageListener
             return;
         }
 
-        if (legacy && channel.equals("WDL|INIT") || !legacy && channel.equals("wdl:init")) {
+        if (legacy && channel.equals(WDL_INIT_CHANNEL) || !legacy && channel.equals(WDL_INIT_CHANNEL)) {
 
             ByteArrayDataOutput out = ByteStreams.newDataOutput();
             out.writeInt(0);
             out.writeBoolean(false);
-            if (legacy) player.sendPluginMessage(getPlugin(), "WDL|CONTROL", out.toByteArray());
-            else player.sendPluginMessage(getPlugin(), "wdl:control", out.toByteArray());
+            player.sendPluginMessage(getPlugin(), WDL_CONTROL_CHANNEL, out.toByteArray());
 
             if (!getPlugin().getConfigManager().getFile(ConfigType.SETTINGS).getConfig().getBoolean("anti_wdl.admin_notify")) {
                 return;

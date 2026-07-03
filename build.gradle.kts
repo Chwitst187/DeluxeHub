@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("com.gradleup.shadow") version "9.2.2"
+    id("com.gradleup.shadow") version "9.4.3"
 }
 
 group = "net.zithium"
@@ -22,7 +22,7 @@ repositories {
 dependencies {
     implementation("com.github.cryptomorin:XSeries:13.7.0")
     implementation("javax.inject:javax.inject:1")
-    implementation("javax.annotation:javax.annotation-api:1.2")
+    implementation("javax.annotation:javax.annotation-api:1.3.2")
     implementation("com.github.BGMP.CommandFramework:command-framework-bukkit:master") {
         exclude(group = "org.bukkit", module = "bukkit")
     }

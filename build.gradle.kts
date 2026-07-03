@@ -60,7 +60,8 @@ tasks {
             exclude(dependency("com.tcoded:FoliaLib:.*"))
         }
 
-        archiveFileName.set("${project.name}-${project.version}-patched.jar")`r`n`r`n        archiveClassifier.set("") // Removes "-all" suffix
+        archiveFileName.set("${project.name}-${project.version}-patched.jar")
+        archiveClassifier.set("") // Removes "-all" suffix
 
         relocate("org.bstats", "net.zithium.deluxehub.libs.metrics")
         relocate("cl.bgmp", "net.zithium.deluxehub.libs.command")
@@ -70,4 +71,3 @@ tasks {
         relocate("com.cryptomorin.xseries", "net.zithium.deluxehub.libs.xseries")
     }
 }
-

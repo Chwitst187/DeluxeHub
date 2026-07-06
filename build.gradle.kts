@@ -26,7 +26,7 @@ dependencies {
     implementation("com.github.BGMP.CommandFramework:command-framework-bukkit:master") {
         exclude(group = "org.bukkit", module = "bukkit")
     }
-    implementation("com.tcoded:FoliaLib:0.5.1")
+    implementation("com.tcoded:FoliaLib:0.5.2")
     implementation("de.tr7zw:item-nbt-api:2.15.7") // UPDATE THIS FOR EACH NEW MC VERSION
     implementation("org.bstats:bstats-bukkit-lite:1.8")
     implementation("com.github.shynixn.headdatabase:hdb-api:1.0")

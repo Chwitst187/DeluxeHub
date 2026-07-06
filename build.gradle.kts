@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.cryptomorin:XSeries:13.7.0")
+    implementation("com.github.cryptomorin:XSeries:13.8.0")
     implementation("javax.inject:javax.inject:1")
     implementation("javax.annotation:javax.annotation-api:1.3.2")
     implementation("com.github.BGMP.CommandFramework:command-framework-bukkit:master") {

@@ -30,7 +30,7 @@ dependencies {
     implementation("de.tr7zw:item-nbt-api:2.15.7") // UPDATE THIS FOR EACH NEW MC VERSION
     implementation("org.bstats:bstats-bukkit-lite:1.8")
     implementation("com.github.shynixn.headdatabase:hdb-api:1.0")
-    implementation("com.github.ItzSave:ZithiumLibrary:1f5182b77f")
+    implementation("com.github.ItzSave:ZithiumLibrary:v2.1.12")
 
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
     compileOnly("net.md-5:bungeecord-chat:1.21-R0.4")

@@ -32,7 +32,7 @@ dependencies {
     implementation("com.github.shynixn.headdatabase:hdb-api:1.0")
     implementation("com.github.ItzSave:ZithiumLibrary:1f5182b77f")
 
-    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:26.1.2.build.72-stable")
     compileOnly("net.md-5:bungeecord-chat:1.21-R0.4")
     compileOnly("com.mojang:authlib:1.5.21")
     compileOnly("me.clip:placeholderapi:2.11.6")
